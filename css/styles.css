@@ -562,16 +562,147 @@ section {
 
 /* ---------- Contact ---------- */
 
-.calendar-embed {
+.ptc-calendar {
   margin-top: 28px;
   border-radius: var(--radius);
-  overflow: hidden;
   box-shadow: var(--shadow);
   background: var(--white);
+  padding: 26px 24px;
+  max-width: 420px;
 }
 
-.calendar-embed iframe {
-  display: block;
+.ptc-cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.ptc-cal-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--purple-dark);
+  font-size: 1.15rem;
+}
+
+.ptc-cal-nav {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: var(--mauve-light);
+  color: var(--purple-dark);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.ptc-cal-nav:hover:not(:disabled) {
+  background: var(--mauve);
+}
+
+.ptc-cal-nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.ptc-cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #6b5c78;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.ptc-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.ptc-cal-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  color: var(--text-body);
+  background: var(--cream);
+}
+
+.ptc-cal-day.is-empty {
+  background: transparent;
+}
+
+.ptc-cal-day.is-past {
+  opacity: 0.35;
+}
+
+.ptc-cal-day.is-today {
+  box-shadow: inset 0 0 0 2px var(--gold);
+  font-weight: 700;
+}
+
+.ptc-cal-day.is-booked {
+  position: relative;
+  background: var(--near-black);
+  color: transparent;
+}
+
+.ptc-cal-day.is-booked::after {
+  content: "\2715";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.75em;
+}
+
+.ptc-cal-status {
+  margin: 14px 0 0;
+  font-size: 0.85rem;
+  color: #6b5c78;
+  text-align: center;
+}
+
+.ptc-cal-status-error {
+  color: #9c4b4b;
+}
+
+.ptc-cal-legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: #6b5c78;
+}
+
+.ptc-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 1px solid #d8cbe0;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.ptc-dot.is-booked {
+  background: var(--near-black);
+  border-color: var(--near-black);
 }
 
 .contact-layout {
