@@ -98,21 +98,21 @@
 
     var timeMin = isoDate(y, m, 1);
     var timeMax = isoDate(y, m + 1, 1);
-    var url = "https://www.googleapis.com/calendar/v3/calendars/" +
-      encodeURIComponent(CALENDAR_ID) + "/events?key=" + encodeURIComponent(API_KEY) +
-      "&timeMin=" + encodeURIComponent(timeMin) +
-      "&timeMax=" + encodeURIComponent(timeMax) +
-      "&singleEvents=true&orderBy=startTime";
 
-    fetch(url)
+    fetch("https://www.googleapis.com/calendar/v3/freeBusy?key=" + encodeURIComponent(API_KEY), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ timeMin: timeMin, timeMax: timeMax, items: [{ id: CALENDAR_ID }] })
+    })
       .then(function (res) {
         if (!res.ok) throw new Error("Calendar API error " + res.status);
         return res.json();
       })
       .then(function (data) {
         var days = {};
-        (data.items || []).forEach(function (ev) {
-          markEventDays(ev, days);
+        var cal = data.calendars && data.calendars[CALENDAR_ID];
+        (cal && cal.busy || []).forEach(function (range) {
+          markBusyRange(range.start, range.end, days);
         });
         monthCache[cacheKey] = days;
         if (cacheKey === view.year + "-" + view.month) render();
@@ -123,21 +123,10 @@
       });
   }
 
-  function markEventDays(ev, days) {
-    var start = ev.start && (ev.start.date || ev.start.dateTime);
-    var end = ev.end && (ev.end.date || ev.end.dateTime);
-    if (!start || !end) return;
-
-    var allDay = !!(ev.start && ev.start.date);
-    var cur = new Date(start);
-    var stop = new Date(end);
-
-    if (!allDay) {
-      // Timed event: mark the calendar day(s) it touches.
-      cur = new Date(cur.getFullYear(), cur.getMonth(), cur.getDate());
-      stop = new Date(stop.getFullYear(), stop.getMonth(), stop.getDate() + 1);
-    }
-    // All-day events already use an exclusive end date per the API.
+  function markBusyRange(startIso, endIso, days) {
+    var stop = new Date(endIso);
+    var cur = new Date(startIso);
+    cur = new Date(cur.getFullYear(), cur.getMonth(), cur.getDate());
 
     while (cur < stop) {
       days[dateKey(cur.getFullYear(), cur.getMonth(), cur.getDate())] = true;
