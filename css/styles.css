@@ -284,6 +284,11 @@ a {
   color: var(--white);
 }
 
+.page-banner-logo {
+  width: min(320px, 70vw);
+  margin: 4px auto 20px;
+}
+
 .page-banner p {
   max-width: 640px;
   margin: 0 auto;
