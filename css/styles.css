@@ -563,12 +563,7 @@ section {
 /* ---------- Contact ---------- */
 
 .ptc-calendar {
-  margin-top: 28px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  background: var(--white);
-  padding: 26px 24px;
-  max-width: 420px;
+  margin-top: 22px;
 }
 
 .ptc-cal-header {
@@ -707,8 +702,8 @@ section {
 
 .contact-layout {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 56px;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
   align-items: start;
 }
 
@@ -723,6 +718,24 @@ section {
   border-radius: var(--radius);
   padding: 36px;
   box-shadow: var(--shadow);
+}
+
+.contact-side {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.calendar-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px 34px;
+  box-shadow: var(--shadow);
+}
+
+.calendar-card p {
+  color: #6b5c78;
+  font-size: 0.95rem;
 }
 
 .form-row {
@@ -764,7 +777,7 @@ section {
   background: var(--purple-dark);
   color: var(--white);
   border-radius: var(--radius);
-  padding: 36px;
+  padding: 32px 34px;
 }
 
 .contact-info h3 {
