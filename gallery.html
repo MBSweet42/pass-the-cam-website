@@ -54,37 +54,46 @@
         <p>Real 4K clips captured on Pass The Cam gear at real events.</p>
 
         <!--
-          To add another video later: upload it to YouTube as Unlisted,
-          then copy one of the <figure class="video-item"> blocks below,
-          swapping the video ID in the iframe src and the caption text.
+          To add another video later: drop the .mp4 and a matching poster
+          .jpg into the videos/ folder, then copy one of the
+          <figure class="video-item"> blocks below, swapping the src,
+          poster, and caption text. No third-party branding, fully self-hosted.
         -->
         <div class="video-grid">
           <figure class="video-item">
             <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/6iuu4MskSes" title="Pass The Cam — Taunton event, 4K sample footage" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <video controls preload="none" playsinline poster="videos/taunton-poster.jpg">
+                <source src="videos/taunton.mp4" type="video/mp4">
+              </video>
             </div>
-            <figcaption>Taunton — 4K Sample Footage</figcaption>
+            <figcaption>Garden Celebration — 4K Sample</figcaption>
           </figure>
 
           <figure class="video-item">
             <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/Hf2NzUzx3us" title="Pass The Cam — Zulla event, 4K sample footage" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <video controls preload="none" playsinline poster="videos/zulla-poster.jpg">
+                <source src="videos/zulla.mp4" type="video/mp4">
+              </video>
             </div>
-            <figcaption>Zulla — 4K Sample Footage</figcaption>
+            <figcaption>Beachside Wedding — 4K Sample</figcaption>
           </figure>
 
           <figure class="video-item">
             <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/RbVIalNUjaw" title="Pass The Cam — Sassy event, 4K sample footage" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <video controls preload="none" playsinline poster="videos/sassy-poster.jpg">
+                <source src="videos/sassy.mp4" type="video/mp4">
+              </video>
             </div>
-            <figcaption>Sassy — 4K Sample Footage</figcaption>
+            <figcaption>Brunch Celebration — 4K Sample</figcaption>
           </figure>
 
           <figure class="video-item">
             <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/QnGdrCoV7RY" title="Pass The Cam — Brady event, 4K sample footage" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <video controls preload="none" playsinline poster="videos/brady-poster.jpg">
+                <source src="videos/brady.mp4" type="video/mp4">
+              </video>
             </div>
-            <figcaption>Brady — 4K Sample Footage</figcaption>
+            <figcaption>Birthday Party — 4K Sample</figcaption>
           </figure>
         </div>
       </div>
