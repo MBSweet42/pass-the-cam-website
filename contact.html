@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Pass The Cam</title>
+  <meta name="description" content="Check availability and book your 4K camcorder or Instax film camera rental with Pass The Cam.">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="nav-logo" href="index.html"><img src="images/logo.png" alt="Pass The Cam"></a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a class="btn btn-primary" href="contact.html">Check Availability</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-banner">
+      <div class="container">
+        <h1>Check Availability</h1>
+        <p>Tell us about your event and we'll get back to you with pricing and availability.</p>
+      </div>
+    </section>
+
+    <section class="section-cream">
+      <div class="container contact-layout">
+        <!--
+          Contact form setup: sign up free at https://formspree.io using
+          hello@passthecamus.com, create a form, then replace YOUR_FORM_ID
+          below with the ID Formspree gives you (in the action URL).
+        -->
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="hidden" name="_next" value="thanks.html">
+          <input type="hidden" name="_subject" value="New booking inquiry — Pass The Cam">
+
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-row">
+            <label for="event_date">Event Date</label>
+            <input type="date" id="event_date" name="event_date">
+          </div>
+
+          <div class="form-row">
+            <label for="event_type">Event Type</label>
+            <select id="event_type" name="event_type">
+              <option value="Wedding">Wedding</option>
+              <option value="Graduation">Graduation</option>
+              <option value="Birthday">Birthday</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your event — guest count, location, and which gear you're interested in." required></textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Send Inquiry</button>
+        </form>
+
+        <aside class="contact-info">
+          <h3>Get In Touch</h3>
+          <p>Prefer to reach out directly? We'd love to hear from you.</p>
+          <ul>
+            <li>Email: <a href="mailto:hello@passthecamus.com">hello@passthecamus.com</a></li>
+            <li>Instagram: <a href="https://instagram.com/passthecamus" target="_blank" rel="noopener">@passthecamus</a></li>
+            <li>Facebook: <a href="https://www.facebook.com/profile.php?id=61588910621984" target="_blank" rel="noopener">Pass The Cam</a></li>
+            <li>Serving Rhode Island and surrounding areas</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="tagline">Capture The Vibe.</p>
+      <p><a href="mailto:hello@passthecamus.com">hello@passthecamus.com</a></p>
+      <div class="footer-social">
+        <a href="https://instagram.com/passthecamus" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=61588910621984" target="_blank" rel="noopener">Facebook</a>
+      </div>
+      <p class="copyright">&copy; 2026 Pass The Cam. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
