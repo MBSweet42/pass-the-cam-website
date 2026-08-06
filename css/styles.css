@@ -329,7 +329,7 @@ section {
   box-shadow: var(--shadow);
 }
 
-.split .eyebrow {
+.eyebrow {
   color: var(--gold);
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -518,6 +518,18 @@ section {
 }
 
 /* ---------- Contact ---------- */
+
+.calendar-embed {
+  margin-top: 28px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--white);
+}
+
+.calendar-embed iframe {
+  display: block;
+}
 
 .contact-layout {
   display: grid;
