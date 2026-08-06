@@ -66,7 +66,7 @@
       if (isPast) cls += " is-past";
       if (isToday) cls += " is-today";
       if (isBooked) cls += " is-booked";
-      var title = isBooked ? ' title="Unavailable"' : "";
+      var title = isBooked ? ' title="This cam\'s already been passed!"' : "";
       html += '<span class="' + cls + '"' + title + ">" + d + "</span>";
     }
     html += "</div>";
@@ -76,7 +76,7 @@
     } else if (errored) {
       html += '<p class="ptc-cal-status ptc-cal-status-error">Couldn\'t load live availability right now &mdash; send us your date below and we\'ll confirm it directly.</p>';
     } else {
-      html += '<div class="ptc-cal-legend"><span><i class="ptc-dot"></i> Available</span><span><i class="ptc-dot is-booked"></i> Unavailable</span></div>';
+      html += '<div class="ptc-cal-legend"><span><i class="ptc-dot"></i> Available</span><span><i class="ptc-dot is-booked"></i> Cam\'s Passed</span></div>';
     }
 
     root.innerHTML = html;
