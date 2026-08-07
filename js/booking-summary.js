@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
   var params = new URLSearchParams(window.location.search);
   var pkg = params.get("package");
   var price = params.get("price");
-  var addons = params.get("addons");
+  var alaCarte = params.get("alacarte");
   var total = params.get("total");
 
-  if (!pkg && !addons) return;
+  if (!pkg && !alaCarte) return;
 
   function formatMoney(n) {
     var num = parseInt(n, 10);
@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (pkg) {
     lines.push(pkg + " Package (" + formatMoney(price) + ")");
   }
-  if (addons) {
-    lines.push("Add-ons: " + addons);
+  if (alaCarte) {
+    lines.push("A La Carte: " + alaCarte);
   }
   if (total) {
     lines.push("Estimated Total: " + formatMoney(total));

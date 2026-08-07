@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return null;
   }
 
-  function selectedAddons() {
+  function selectedAlaCarte() {
     var result = [];
     addonInputs.forEach(function (input) {
       if (input.checked) {
@@ -30,11 +30,15 @@ document.addEventListener("DOMContentLoaded", function () {
   function recalc() {
     var pkg = selectedPackage();
     var basePrice = pkg ? parseInt(pkg.getAttribute("data-price"), 10) : 0;
-    var addonsTotal = selectedAddons().reduce(function (sum, a) { return sum + a.price; }, 0);
-    var total = basePrice + addonsTotal;
+    var alaCarteTotal = selectedAlaCarte().reduce(function (sum, a) { return sum + a.price; }, 0);
+    var total = basePrice + alaCarteTotal;
 
     totalEl.textContent = formatMoney(total);
-    bookBtn.disabled = !pkg;
+
+    // A package alone, a la carte alone, or both together can all proceed
+    // to checking availability — only block it when nothing is selected.
+    bookBtn.disabled = total <= 0;
+    bookBtn.textContent = pkg ? "Book This Package" : "Check Availability";
   }
 
   packageInputs.forEach(function (input) {
@@ -46,17 +50,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   bookBtn.addEventListener("click", function () {
     var pkg = selectedPackage();
-    if (!pkg) return;
+    var alaCarte = selectedAlaCarte();
+    var basePrice = pkg ? parseInt(pkg.getAttribute("data-price"), 10) : 0;
+    var total = basePrice + alaCarte.reduce(function (sum, a) { return sum + a.price; }, 0);
 
-    var addons = selectedAddons();
-    var basePrice = parseInt(pkg.getAttribute("data-price"), 10);
-    var total = basePrice + addons.reduce(function (sum, a) { return sum + a.price; }, 0);
+    if (total <= 0) return;
 
     var params = new URLSearchParams();
-    params.set("package", pkg.value);
-    params.set("price", basePrice);
-    if (addons.length) {
-      params.set("addons", addons.map(function (a) { return a.name; }).join(", "));
+    if (pkg) {
+      params.set("package", pkg.value);
+      params.set("price", basePrice);
+    }
+    if (alaCarte.length) {
+      params.set("alacarte", alaCarte.map(function (a) { return a.name; }).join(", "));
     }
     params.set("total", total);
 
