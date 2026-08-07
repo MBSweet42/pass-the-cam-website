@@ -54,7 +54,7 @@
         <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="packages.html">Packages &amp; Pricing</a></li>
+        <li><a href="#packages">Packages &amp; Pricing</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a class="btn btn-primary" href="contact.html">Check Availability</a></li>
       </ul>
@@ -105,11 +105,164 @@
       </div>
     </section>
 
+    <section class="section-cream" id="packages">
+      <div class="container">
+        <span class="eyebrow">Packages &amp; Pricing</span>
+        <h2>Pick Your Package</h2>
+        <p>Tap a package to see the price, or skip straight to building your own below — either way, your total shows up in the tab on the side.</p>
+
+        <div class="package-grid">
+          <button type="button" class="package-card" data-name="The Party" data-price="697" data-desc="One 4K camcorder, one instant camera (32 shots), and raw digital footage. Delivered in 48 hours.">
+            <span class="package-card-inner">
+              <span class="package-name">The Party</span>
+              <span class="package-price">$697</span>
+              <span class="package-desc">One 4K camcorder, one instant camera (32 shots), and raw digital footage. Delivered in 48 hours.</span>
+            </span>
+          </button>
+
+          <button type="button" class="package-card" data-name="The Soiree" data-price="1147" data-desc="One 4K camcorder, two instant cameras (80 shots), a scrapbook, and a 3-5 minute highlight video. Delivered in 72 hours.">
+            <span class="package-card-inner">
+              <span class="package-name">The Soiree</span>
+              <span class="package-price">$1,147</span>
+              <span class="package-desc">One 4K camcorder, two instant cameras (80 shots), a scrapbook, and a 3-5 minute highlight video. Delivered in 72 hours.</span>
+            </span>
+          </button>
+
+          <button type="button" class="package-card" data-name="The Gala" data-price="1847" data-desc="Two 4K camcorders, two instant cameras (160 shots), a scrapbook, and a 5-7 minute highlight video. Delivered in 7 days.">
+            <span class="package-card-inner">
+              <span class="package-name">The Gala</span>
+              <span class="package-price">$1,847</span>
+              <span class="package-desc">Two 4K camcorders, two instant cameras (160 shots), a scrapbook, and a 5-7 minute highlight video. Delivered in 7 days.</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-mauve">
+      <div class="container">
+        <span class="eyebrow">Build Your Own</span>
+        <h2>A La Carte</h2>
+        <p>Add any of these on their own, or alongside a package above.</p>
+
+        <div class="addon-list">
+          <label class="addon-row">
+            <input type="checkbox" data-price="397" data-name="4K Camcorder">
+            <span class="addon-info">
+              <span class="addon-title">4K Camcorder <em>$397</em></span>
+              <span class="addon-desc">Includes a Sony 4K Camcorder, two batteries, a charger, and a hard case. Just bring your own SD card!</span>
+            </span>
+          </label>
+
+          <label class="addon-row">
+            <input type="checkbox" data-price="123" data-name="Instax Wide 400">
+            <span class="addon-info">
+              <span class="addon-title">Instax Wide 400 <em>$123</em></span>
+              <span class="addon-desc">A classic analog wide-format camera. Film is sold separately.</span>
+            </span>
+          </label>
+
+          <label class="addon-row">
+            <input type="checkbox" data-price="147" data-name="Instax Wide Evo">
+            <span class="addon-info">
+              <span class="addon-title">Instax Wide Evo <em>$147</em></span>
+              <span class="addon-desc">A premium hybrid camera that allows you to review your shots before printing.</span>
+            </span>
+          </label>
+
+          <label class="addon-row">
+            <input type="checkbox" data-price="125" data-name="1TB SD Card">
+            <span class="addon-info">
+              <span class="addon-title">1TB SD Card <em>$125</em></span>
+              <span class="addon-desc">High-capacity memory card rental for your event.</span>
+            </span>
+          </label>
+
+          <label class="addon-row">
+            <input type="checkbox" data-price="107" data-name="Film Refill">
+            <span class="addon-info">
+              <span class="addon-title">Film Refill <em>$107</em></span>
+              <span class="addon-desc">A 50-shot pack of Instax Wide format film.</span>
+            </span>
+          </label>
+
+          <label class="addon-row">
+            <input type="checkbox" data-price="147" data-name="Scrapbook Kit">
+            <span class="addon-info">
+              <span class="addon-title">Scrapbook Kit <em>$147</em></span>
+              <span class="addon-desc">Includes a premium album, metallic markers, adhesive, and guest signage.</span>
+            </span>
+          </label>
+
+          <label class="addon-row">
+            <input type="checkbox" data-price="350" data-name="The Digital Dump">
+            <span class="addon-info">
+              <span class="addon-title">The Digital Dump <em>$350</em></span>
+              <span class="addon-desc">We process your raw footage, host it on the cloud, and deliver it digitally within 48 hours.</span>
+            </span>
+          </label>
+
+          <label class="addon-row">
+            <input type="checkbox" data-price="447" data-name="3-5 Minute Highlight Reel">
+            <span class="addon-info">
+              <span class="addon-title">3-5 Minute Highlight Reel <em>$447</em></span>
+              <span class="addon-desc">A short, curated video featuring the best guest point-of-view moments.</span>
+            </span>
+          </label>
+
+          <label class="addon-row">
+            <input type="checkbox" data-price="882" data-name="5-7 Minute Highlight Reel">
+            <span class="addon-info">
+              <span class="addon-title">5-7 Minute Highlight Reel <em>$882</em></span>
+              <span class="addon-desc">An extended, curated video featuring the best guest point-of-view moments.</span>
+            </span>
+          </label>
+        </div>
+        <p class="estimate-hint">Prices shown are estimates. We'll confirm your final quote once we hear from you.</p>
+      </div>
+    </section>
+
     <section class="cta-band">
       <h2>Ready to capture the vibe at your next event?</h2>
       <a class="btn btn-primary" href="contact.html">Check Availability</a>
     </section>
   </main>
+
+  <!-- Package selection popup -->
+  <div class="package-modal" id="package-modal" hidden>
+    <div class="package-modal-backdrop" data-close-modal></div>
+    <div class="package-modal-card" role="dialog" aria-modal="true" aria-labelledby="package-modal-name">
+      <button type="button" class="package-modal-close" data-close-modal aria-label="Close">&times;</button>
+      <span class="package-modal-eyebrow">You selected</span>
+      <h3 id="package-modal-name"></h3>
+      <p class="package-modal-price"></p>
+      <p class="package-modal-desc"></p>
+      <div class="package-modal-actions">
+        <button type="button" class="btn btn-outline-purple" id="package-modal-continue">Continue Browsing</button>
+        <button type="button" class="btn btn-primary" id="package-modal-check">Check Availability</button>
+      </div>
+      <button type="button" class="package-modal-remove" id="package-modal-remove" hidden>Remove this package</button>
+    </div>
+  </div>
+
+  <!-- Floating à la carte cart tab -->
+  <div class="side-tab" id="side-tab">
+    <button type="button" class="side-tab-toggle" id="side-tab-toggle">
+      <span class="side-tab-label">Your Order</span>
+      <span class="side-tab-total" id="side-tab-total">$0</span>
+    </button>
+    <div class="side-tab-panel" id="side-tab-panel" hidden>
+      <h3>Your Order</h3>
+      <ul class="side-tab-items" id="side-tab-items">
+        <li class="side-tab-empty">Nothing selected yet — pick a package or add à la carte items.</li>
+      </ul>
+      <div class="side-tab-total-row">
+        <span>Estimated Total</span>
+        <strong id="side-tab-panel-total">$0</strong>
+      </div>
+      <button type="button" class="btn btn-primary" id="side-tab-check" disabled>Check Availability</button>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container">
@@ -125,5 +278,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/home-packages.js"></script>
 </body>
 </html>

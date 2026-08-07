@@ -814,7 +814,7 @@ section {
   text-underline-offset: 4px;
 }
 
-/* ---------- Packages calculator ---------- */
+/* ---------- Packages & À La Carte ---------- */
 
 .package-grid {
   display: grid;
@@ -826,12 +826,13 @@ section {
 .package-card {
   cursor: pointer;
   display: block;
-}
-
-.package-card input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
 }
 
 .package-card-inner {
@@ -846,12 +847,16 @@ section {
   transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
-.package-card input:checked + .package-card-inner {
+.package-card:hover .package-card-inner {
+  transform: translateY(-3px);
+}
+
+.package-card.is-selected .package-card-inner {
   border-color: var(--gold);
   transform: translateY(-3px);
 }
 
-.package-card input:focus-visible + .package-card-inner {
+.package-card:focus-visible .package-card-inner {
   outline: 2px solid var(--purple-dark);
   outline-offset: 2px;
 }
@@ -945,54 +950,244 @@ section {
   font-style: italic;
 }
 
-.estimate-bar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 150;
-  background: var(--near-black);
-  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
+/* Package selection popup */
+
+.package-modal[hidden] {
+  display: none;
 }
 
-.estimate-bar-inner {
+.package-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 16px 24px;
+  justify-content: center;
+  padding: 24px;
 }
 
-.estimate-text {
-  display: flex;
-  flex-direction: column;
+.package-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(33, 31, 38, 0.55);
 }
 
-.estimate-text span {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--mauve-light);
+body.modal-open {
+  overflow: hidden;
 }
 
-.estimate-text strong {
-  font-family: var(--font-heading);
+.package-modal-card {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  padding: 40px 36px 32px;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+}
+
+.package-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
   font-size: 1.6rem;
-  color: var(--gold);
+  line-height: 1;
+  color: #6b5c78;
+  cursor: pointer;
 }
 
-#book-package-btn:disabled {
+.package-modal-eyebrow {
+  display: block;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+}
+
+.package-modal-card h3 {
+  margin-bottom: 4px;
+}
+
+.package-modal-price {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.package-modal-desc {
+  color: #6b5c78;
+  font-size: 0.95rem;
+  margin-bottom: 26px;
+}
+
+.package-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-outline-purple {
+  background: transparent;
+  color: var(--purple-dark);
+  border: 2px solid var(--mauve-light);
+}
+
+.btn-outline-purple:hover {
+  border-color: var(--purple-dark);
+}
+
+.package-modal-remove {
+  display: block;
+  margin: 18px auto 0;
+  background: none;
+  border: none;
+  color: #9c4b4b;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Floating à la carte cart tab */
+
+.side-tab {
+  position: fixed;
+  right: 0;
+  top: 55%;
+  transform: translateY(-50%);
+  z-index: 250;
+  display: flex;
+  align-items: flex-start;
+}
+
+.side-tab-toggle {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  background: var(--purple-dark);
+  color: var(--white);
+  border: none;
+  border-radius: 14px 0 0 14px;
+  padding: 18px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: -4px 4px 16px rgba(33, 31, 38, 0.25);
+  font-family: var(--font-body);
+}
+
+.side-tab-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+.side-tab-total {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+.side-tab-panel {
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(320px, 82vw);
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 16px 40px rgba(33, 31, 38, 0.3);
+  padding: 26px;
+  margin-right: 10px;
+}
+
+.side-tab-panel[hidden] {
+  display: none;
+}
+
+.side-tab-panel h3 {
+  margin-bottom: 14px;
+}
+
+.side-tab-items {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.side-tab-items li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--mauve-light);
+  font-size: 0.9rem;
+  color: var(--text-body);
+}
+
+.side-tab-items li.side-tab-empty {
+  display: block;
+  border-bottom: none;
+  color: #6b5c78;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.side-tab-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 18px;
+  font-weight: 700;
+  color: var(--purple-dark);
+}
+
+.side-tab-total-row strong {
+  font-family: var(--font-heading);
+  color: var(--gold);
+  font-size: 1.3rem;
+}
+
+#side-tab-check {
+  width: 100%;
+}
+
+#side-tab-check:disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
 
-#book-package-btn:disabled:hover {
+#side-tab-check:disabled:hover {
   transform: none;
 }
 
-.site-footer.has-estimate-bar {
-  padding-bottom: 130px;
+@media (max-width: 640px) {
+  .side-tab {
+    top: auto;
+    bottom: 90px;
+    transform: none;
+  }
+
+  .side-tab-panel {
+    position: fixed;
+    right: 12px;
+    left: 12px;
+    bottom: 150px;
+    top: auto;
+    transform: none;
+    width: auto;
+    margin-right: 0;
+  }
 }
 
 /* ---------- Thanks page ---------- */
