@@ -778,6 +778,14 @@ section {
   min-height: 120px;
 }
 
+.form-row textarea[readonly] {
+  background: var(--cream);
+  color: #6b5c78;
+  resize: none;
+  min-height: 90px;
+  font-style: italic;
+}
+
 .contact-info {
   background: var(--purple-dark);
   color: var(--white);
@@ -804,6 +812,187 @@ section {
   text-decoration: underline;
   text-decoration-color: var(--gold);
   text-underline-offset: 4px;
+}
+
+/* ---------- Packages calculator ---------- */
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 32px;
+}
+
+.package-card {
+  cursor: pointer;
+  display: block;
+}
+
+.package-card input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.package-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+  box-shadow: var(--shadow);
+  border: 3px solid transparent;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.package-card input:checked + .package-card-inner {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.package-card input:focus-visible + .package-card-inner {
+  outline: 2px solid var(--purple-dark);
+  outline-offset: 2px;
+}
+
+.package-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--purple-dark);
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+
+.package-price {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.package-desc {
+  color: #6b5c78;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .package-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.addon-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.addon-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--white);
+  border-radius: 14px;
+  padding: 18px 22px;
+  box-shadow: 0 4px 14px rgba(33, 31, 38, 0.08);
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.addon-row:has(input:checked) {
+  border-color: var(--gold);
+}
+
+.addon-row input {
+  margin-top: 4px;
+  width: 20px;
+  height: 20px;
+  accent-color: var(--purple-dark);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.addon-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.addon-title {
+  font-weight: 700;
+  color: var(--purple-dark);
+}
+
+.addon-title em {
+  font-style: normal;
+  color: var(--gold);
+  margin-left: 8px;
+}
+
+.addon-desc {
+  color: #6b5c78;
+  font-size: 0.9rem;
+}
+
+.estimate-hint {
+  text-align: center;
+  color: #6b5c78;
+  font-style: italic;
+}
+
+.estimate-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 150;
+  background: var(--near-black);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.estimate-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 16px 24px;
+}
+
+.estimate-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.estimate-text span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mauve-light);
+}
+
+.estimate-text strong {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--gold);
+}
+
+#book-package-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+#book-package-btn:disabled:hover {
+  transform: none;
+}
+
+.site-footer.has-estimate-bar {
+  padding-bottom: 130px;
 }
 
 /* ---------- Thanks page ---------- */

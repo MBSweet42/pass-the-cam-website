@@ -33,6 +33,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="packages.html">Packages &amp; Pricing</a></li>
         <li><a href="contact.html" aria-current="page">Contact</a></li>
         <li><a class="btn btn-primary" href="contact.html">Check Availability</a></li>
       </ul>
@@ -64,6 +65,11 @@
           </div>
 
           <div class="form-row">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+
+          <div class="form-row">
             <label for="event_date">Event Date</label>
             <input type="date" id="event_date" name="event_date">
           </div>
@@ -83,6 +89,11 @@
             <textarea id="message" name="message" placeholder="Tell us about your event — guest count, location, and which gear you're interested in." required></textarea>
           </div>
 
+          <div class="form-row" id="booking-summary-row">
+            <label for="booking_summary">Booking Summary</label>
+            <textarea id="booking_summary" name="booking_summary" rows="3" readonly placeholder="Build a package on our Packages &amp; Pricing page and it'll show up here automatically."></textarea>
+          </div>
+
           <button class="btn btn-primary" type="submit">Send Inquiry</button>
         </form>
 
@@ -98,6 +109,7 @@
             <p>Prefer to reach out directly? We'd love to hear from you.</p>
             <ul>
               <li>Email: <a href="mailto:hello@passthecamus.com">hello@passthecamus.com</a></li>
+              <li>Phone: <a href="tel:+14016660834">(401) 666-0834</a></li>
               <li>Instagram: <a href="https://instagram.com/passthecamus" target="_blank" rel="noopener">@passthecamus</a></li>
               <li>Facebook: <a href="https://www.facebook.com/profile.php?id=61588910621984" target="_blank" rel="noopener">Pass The Cam</a></li>
               <li>Serving Rhode Island and surrounding areas</li>
@@ -112,6 +124,7 @@
     <div class="container">
       <p class="tagline">Capture The Vibe.</p>
       <p><a href="mailto:hello@passthecamus.com">hello@passthecamus.com</a></p>
+      <p><a href="tel:+14016660834">(401) 666-0834</a></p>
       <div class="footer-social">
         <a href="https://instagram.com/passthecamus" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.facebook.com/profile.php?id=61588910621984" target="_blank" rel="noopener">Facebook</a>
@@ -122,5 +135,6 @@
 
   <script src="js/main.js"></script>
   <script src="js/availability-calendar.js"></script>
+  <script src="js/booking-summary.js"></script>
 </body>
 </html>
