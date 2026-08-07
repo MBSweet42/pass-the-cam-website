@@ -1011,9 +1011,16 @@ section {
   padding: 56px 24px 32px;
 }
 
-.site-footer p {
-  overflow-wrap: break-word;
-  word-break: break-word;
+.site-footer p a {
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 420px) {
+  .site-footer p {
+    font-size: 0.9rem;
+  }
 }
 
 .site-footer .tagline {
