@@ -45,6 +45,9 @@
 <body>
 
   <header class="site-header">
+    <div class="announcement-bar">
+      <p>Nationwide Shipping Available!</p>
+    </div>
     <nav class="nav">
       <a class="nav-logo" href="index.html"><img src="images/logo.png" alt="Pass The Cam"></a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -120,21 +123,51 @@
             </span>
           </button>
 
-          <button type="button" class="package-card" data-name="The Soiree" data-price="1147" data-desc="One 4K camcorder, two instant cameras (80 shots), a scrapbook, and a 3-5 minute highlight video. Delivered in 72 hours.">
+          <button type="button" class="package-card" data-name="The Soiree" data-price="1147" data-desc="One 4K camcorder, two instant cameras (80 shots), a scrapbook, and a 3-5 minute highlight video. Delivered in 1 week.">
             <span class="package-card-inner">
               <span class="package-name">The Soiree</span>
               <span class="package-price">$1,147</span>
-              <span class="package-desc">One 4K camcorder, two instant cameras (80 shots), a scrapbook, and a 3-5 minute highlight video. Delivered in 72 hours.</span>
+              <span class="package-desc">One 4K camcorder, two instant cameras (80 shots), a scrapbook, and a 3-5 minute highlight video. Delivered in 1 week.</span>
             </span>
           </button>
 
-          <button type="button" class="package-card" data-name="The Gala" data-price="1847" data-desc="Two 4K camcorders, two instant cameras (160 shots), a scrapbook, and a 5-7 minute highlight video. Delivered in 7 days.">
+          <button type="button" class="package-card" data-name="The Gala" data-price="1847" data-desc="Two 4K camcorders, two instant cameras (160 shots), a scrapbook, and a 5-7 minute highlight video. Delivered in 2 weeks.">
             <span class="package-card-inner">
               <span class="package-name">The Gala</span>
               <span class="package-price">$1,847</span>
-              <span class="package-desc">Two 4K camcorders, two instant cameras (160 shots), a scrapbook, and a 5-7 minute highlight video. Delivered in 7 days.</span>
+              <span class="package-desc">Two 4K camcorders, two instant cameras (160 shots), a scrapbook, and a 5-7 minute highlight video. Delivered in 2 weeks.</span>
             </span>
           </button>
+        </div>
+
+        <div class="faq-block">
+          <h3 class="faq-heading">Frequently Asked Questions</h3>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary class="faq-question">How does shipping work?<span class="faq-icon">+</span></summary>
+              <div class="faq-answer">
+                <p>Placeholder answer — edit this text to explain how gear is shipped to and from the event (carrier, timing, packaging, etc.).</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">When will I get my video?<span class="faq-icon">+</span></summary>
+              <div class="faq-answer">
+                <p>Placeholder answer — edit this text to explain delivery timelines for each package's video and digital footage.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">What happens if the gear is lost or damaged?<span class="faq-icon">+</span></summary>
+              <div class="faq-answer">
+                <p>Placeholder answer — edit this text to explain your loss/damage policy, deposits, or insurance options.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">Do my guests need any experience using the cameras?<span class="faq-icon">+</span></summary>
+              <div class="faq-answer">
+                <p>Placeholder answer — edit this text to reassure guests that the gear is simple, point-and-shoot, and beginner friendly.</p>
+              </div>
+            </details>
+          </div>
         </div>
       </div>
     </section>
@@ -226,6 +259,18 @@
       <h2>Ready to capture the vibe at your next event?</h2>
       <a class="btn btn-primary" href="contact.html">Check Availability</a>
     </section>
+
+    <section class="section-cream" id="reviews">
+      <div class="container">
+        <span class="eyebrow">Google Reviews</span>
+        <h2>What Our Guests Are Saying</h2>
+        <p>Real feedback from real celebrations, pulled straight from Google.</p>
+
+        <div class="reviews-grid" id="google-reviews-grid"></div>
+
+        <a class="btn btn-outline-purple reviews-cta" id="google-reviews-link" href="https://www.google.com/search?q=Pass+The+Cam+reviews" target="_blank" rel="noopener">Read more reviews on Google</a>
+      </div>
+    </section>
   </main>
 
   <!-- Package selection popup -->
@@ -279,5 +324,6 @@
 
   <script src="js/main.js"></script>
   <script src="js/home-packages.js"></script>
+  <script src="js/google-reviews.js"></script>
 </body>
 </html>
