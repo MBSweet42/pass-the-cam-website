@@ -1399,6 +1399,7 @@ body.modal-open {
 }
 
 .review-author {
+  margin-top: auto;
   display: flex;
   align-items: center;
   gap: 12px;

@@ -8,6 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
       rating: 5,
       text: "I used pass the cam for a birthday party. It was such a great experience! The customer service was great and everyone was professional and timely with responses. The video came out so good!!! It really captured the party! If you weren't at the party and watch the video you would feel like you were! The party was for a 100 year old person and pass the cam was given as a gift! What a great gift it was! Thank you pass the cam for making the day extra memorable!",
       relativeTime: "August 2026"
+    },
+    {
+      author: "Laura Ortelt",
+      rating: 5,
+      text: "",
+      relativeTime: "August 2026"
     }
   ];
 
@@ -33,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return (
         '<div class="review-card">' +
           '<div class="review-stars" aria-label="' + rating + ' out of 5 stars">' + stars + "</div>" +
-          '<p class="review-text">' + escapeHtml(r.text) + "</p>" +
+          (r.text ? '<p class="review-text">' + escapeHtml(r.text) + "</p>" : "") +
           '<div class="review-author">' +
             '<span class="review-avatar" aria-hidden="true">' + escapeHtml(initials(r.author)) + "</span>" +
             "<span>" +
