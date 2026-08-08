@@ -2,33 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
   var grid = document.getElementById("google-reviews-grid");
   if (!grid) return;
 
-  // --- Connect live Google Reviews here ---
-  // 1. In Google Cloud Console, create an API key with the "Maps JavaScript API"
-  //    and "Places API" enabled, restricted to the passthecamus.com referrer.
-  // 2. Look up your Place ID: https://developers.google.com/maps/documentation/places/web-service/place-id
-  // 3. Paste both values below. Until they're set, the placeholder reviews
-  //    below are shown so this section is never empty.
-  var GOOGLE_MAPS_API_KEY = "";
-  var GOOGLE_PLACE_ID = "";
-
-  var FALLBACK_REVIEWS = [
+  var REVIEWS = [
     {
-      author: "Sarah M.",
+      author: "Kaitlin Brady",
       rating: 5,
-      text: "Placeholder review — replace with real Google Reviews once the API key above is connected. Everyone loved passing the camera around at our wedding!",
-      relativeTime: "2 weeks ago"
-    },
-    {
-      author: "James T.",
-      rating: 5,
-      text: "Placeholder review — replace with real Google Reviews once the API key above is connected. Booking was easy and the footage turned out amazing.",
-      relativeTime: "1 month ago"
-    },
-    {
-      author: "Priya K.",
-      rating: 5,
-      text: "Placeholder review — replace with real Google Reviews once the API key above is connected. Guests had a blast with the instant cameras!",
-      relativeTime: "1 month ago"
+      text: "I used pass the cam for a birthday party. It was such a great experience! The customer service was great and everyone was professional and timely with responses. The video came out so good!!! It really captured the party! If you weren't at the party and watch the video you would feel like you were! The party was for a 100 year old person and pass the cam was given as a gift! What a great gift it was! Thank you pass the cam for making the day extra memorable!",
+      relativeTime: "August 2026"
     }
   ];
 
@@ -67,34 +46,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }).join("");
   }
 
-  // Show placeholder content immediately so the section is never empty,
-  // then swap in live reviews if the API key/Place ID above are configured.
-  renderReviews(FALLBACK_REVIEWS);
-
-  if (!GOOGLE_MAPS_API_KEY || !GOOGLE_PLACE_ID) return;
-
-  window.__ptcRenderGoogleReviews = function () {
-    try {
-      var service = new google.maps.places.PlacesService(document.createElement("div"));
-      service.getDetails({ placeId: GOOGLE_PLACE_ID, fields: ["reviews"] }, function (place, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK && place && place.reviews && place.reviews.length) {
-          renderReviews(place.reviews.map(function (rev) {
-            return {
-              author: rev.author_name,
-              rating: rev.rating,
-              text: rev.text,
-              relativeTime: rev.relative_time_description
-            };
-          }));
-        }
-      });
-    } catch (e) {
-      // Leave the placeholder reviews in place if the Places API call fails.
-    }
-  };
-
-  var script = document.createElement("script");
-  script.src = "https://maps.googleapis.com/maps/api/js?key=" + encodeURIComponent(GOOGLE_MAPS_API_KEY) + "&libraries=places&callback=__ptcRenderGoogleReviews";
-  script.async = true;
-  document.head.appendChild(script);
+  renderReviews(REVIEWS);
 });
