@@ -44,4 +44,36 @@ document.addEventListener("DOMContentLoaded", function () {
       if (e.key === "Escape") closeLightbox();
     });
   }
+
+  // PDF popup (Rental Agreement, etc.)
+  var pdfModal = document.querySelector(".pdf-modal");
+  var pdfTriggers = document.querySelectorAll(".pdf-modal-trigger");
+  if (pdfModal && pdfTriggers.length) {
+    var pdfFrame = document.getElementById("pdf-modal-frame");
+    var pdfOpenNew = document.getElementById("pdf-modal-open-new");
+
+    function closePdfModal() {
+      pdfModal.hidden = true;
+      pdfFrame.src = "";
+      document.body.classList.remove("modal-open");
+    }
+
+    pdfTriggers.forEach(function (trigger) {
+      trigger.addEventListener("click", function (e) {
+        e.preventDefault();
+        var href = trigger.getAttribute("href");
+        pdfFrame.src = href;
+        pdfOpenNew.href = href;
+        pdfModal.hidden = false;
+        document.body.classList.add("modal-open");
+      });
+    });
+
+    pdfModal.querySelectorAll("[data-close-pdf-modal]").forEach(function (el) {
+      el.addEventListener("click", closePdfModal);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !pdfModal.hidden) closePdfModal();
+    });
+  }
 });
